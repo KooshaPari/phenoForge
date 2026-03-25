@@ -1,5 +1,5 @@
 [package]
-name = "forge"
+name = "phenotype-forge"
 version = "0.1.0"
 edition = "2021"
 description = "CLI task runner"
@@ -15,5 +15,5 @@ toml = "0.8"
 thiserror = "1.0"
 
 [[bin]]
-name = "forge"
+name = "phenotype-forge"
 path = "src/main.rs"
