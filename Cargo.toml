@@ -14,6 +14,11 @@ notify = "6.0"
 toml = "0.8"
 thiserror = "1.0"
 
+# Shared infrastructure
+helix-tracing = { package = "helix-tracing", path = "../phenotype-tracing" }
+helix-logging = { package = "helix-logging", path = "../phenotype-logger" }
+phenotype-metrics = { path = "../phenotype-metrics" }
+
 [[bin]]
 name = "phenotype-forge"
 path = "src/main.rs"
