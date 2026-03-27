@@ -23,7 +23,7 @@ cargo install forge-cli
 
 ## Quick Start
 
-```rust
+```rust,ignore
 use forge::{task, deps};
 
 #[task]
