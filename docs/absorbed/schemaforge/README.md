@@ -1,27 +1,44 @@
-# Schemaforge (Absorbed)
+# craft
 
-> **Status**: Absorbed into phenoForge as planned feature
+Type-safe code generation from schemas. Generate Rust, TypeScript, Go from a single source.
 
-The Schemaforge project has been merged into phenoForge's roadmap. Its specification and PRD are preserved here for reference.
+## Features
 
-## Original Description
+- **Schema First**: Define once, generate everywhere
+- **Type-safe**: Full type inference
+- **Templates**: Customizable templates
+- **Watch Mode**: Regenerate on change
 
-Type-safe code generation from schemas (schema-first code generation tool "craft")
+## Installation
 
-## Absorbed Documentation
+```bash
+npm install -g @craft/cli
+```
 
-- [SPEC.md](./SPEC.md) - Original specification
-- [PRD.md](./PRD.md) - Product requirements document
+## Usage
 
-## Integration Notes
+Define schema:
+```yaml
+# schema.yaml
+entities:
+  User:
+    id: string
+    name: string
+    email: string
+    created_at: timestamp
+```
 
-The "craft" tool described in the PRD should be implemented as a module within phenoForge's code generation capabilities.
+Generate:
+```bash
+craft generate --schema schema.yaml --output ./generated
+```
 
-### Key Features to Implement
+Generates:
+- Rust structs
+- TypeScript interfaces
+- Go structs
+- SQL migrations
 
-1. Schema language (YAML/JSON) with entity, relationship, and enum definitions
-2. Multi-language code generators (Rust, TypeScript, Go, SQL, OpenAPI)
-3. CLI with generate, watch, validate, and diff commands
-4. Handlebars-based template system
-5. Plugin system for custom generators
+## License
 
+MIT
