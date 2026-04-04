@@ -70,7 +70,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Download current results
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: phenotype-forge-benchmark-results-${{ github.sha }}
           path: current
