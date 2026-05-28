@@ -18,11 +18,11 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        uses: actions/checkout@900f2210b1d28bbbd0bd22d17926b9e224e8f231
         with:
           fetch-depth: 0
       - name: TruffleHog OSS
-        uses: trufflesecurity/trufflehog@5f47aad1c2df34f7c6230784ce9a5a659922f479
+        uses: trufflesecurity/trufflehog@36f6f697079e637bccb1e05561a481d8b4016862
         with:
           path: ./
           base_depth: 1
