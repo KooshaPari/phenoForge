@@ -1,4 +1,8 @@
 name: Security Scan
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 
 on:
   workflow_dispatch:
@@ -16,7 +20,7 @@ permissions:
 jobs:
   security-audit:
     name: Rust Security Audit
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
@@ -30,14 +34,14 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run cargo-deny
-        uses: cargo-bins/cargo-deny-action@v1
+        uses: EmbarkStudios/cargo-deny-action@bb137d7af7e4fb67e5f82a49c4fce4fad40782fe
         with:
           command: check advisories bans licenses
           arguments: --strict
 
   security-sast:
     name: SAST Scan
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
       security-events: write
@@ -55,7 +59,7 @@ jobs:
           upload-to-sarif: true
 
       - name: Run Trivy filesystem scan
-        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25
+        uses: aquasecurity/trivy-action@314ff8b43182423b84c50b1670b0e10f858f2d98
         with:
           scan-type: 'fs'
           scan-ref: '.'
@@ -69,7 +73,7 @@ jobs:
 
   security-dependencies:
     name: Dependency Audit
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
@@ -81,7 +85,7 @@ jobs:
 
   security-secrets:
     name: Secret Detection
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5

@@ -1,4 +1,11 @@
 name: CI
+permissions:
+  contents: read
+  pull-requests: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 
 on:
   push:
@@ -9,7 +16,7 @@ on:
 
 jobs:
   ci:
-    uses: KooshaPari/template-commons/.github/workflows/reusable-rust-ci.yml@main
+    uses: KooshaPari/template-commons/.github/workflows/reusable-rust-ci.yml@48772d7560c964fff01a209742429f24283e96cf
     with:
       crate-name: phenotype-forge
       test-features: --all-features
