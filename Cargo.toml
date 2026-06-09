@@ -2,6 +2,12 @@
 name = "phenotype-forge"
 version = "0.1.0"
 edition = "2021"
+license = "MIT-or-Apache-2.0"
+description = "phenoForge — Phenotype build/codegen tooling: cargo-keyword audit, worktree-aware scaffolding, file-watcher driven orchestration"
+homepage = "https://github.com/KooshaPari/phenoForge"
+documentation = "https://docs.rs/phenotype-forge"
+repository = "https://github.com/KooshaPari/phenoForge"
+readme = "README.md"
 
 [workspace]
 
