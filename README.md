@@ -2,6 +2,8 @@
 
 > High-Performance CLI Task Runner and Build Orchestrator
 
+[![AI slop inside](https://sladge.net/badge.svg)](https://sladge.net) [![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/KooshaPari/phenoForge/total)](https://github.com/KooshaPari/phenoForge/releases)
+
 A Rust-native task runner with parallel execution, dependency graph resolution, hot reload, and a powerful plugin system for build automation and workflow orchestration.
 
 ## Philosophy
